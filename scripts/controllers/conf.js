@@ -66,7 +66,7 @@ angular
     function columnDefs () {
       return [
 
-        { field: 'boton', displayName:'boton' ,cellTemplate:"<button ng-click='grid.appScope.localizar(row.entity)'>Hola</button>" },
+        { field: 'boton', displayName:'boton' ,cellTemplate:"<button ng-click='grid.appScope.localizar(row.entity)'>Accion</button>" },
 
         { field: 'id', name: '#', width: 45},
 
