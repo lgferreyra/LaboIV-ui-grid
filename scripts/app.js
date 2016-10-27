@@ -39,4 +39,9 @@ angular
       templateUrl: 'views/modificar.html',
       controller:'ModificarCtrl'
     })
+    .state('bandera', {
+      url: '/bandera',
+      templateUrl: 'views/bandera.html',
+      controller:'BanderaCtrl'
+    })
   });
