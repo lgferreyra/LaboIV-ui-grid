@@ -4,9 +4,17 @@ angular
 /*    function extraerData (data){
       return data.data;
     }*/
+    var url = "http://www.egos27.somee.com/api/bandera";
+
+    function traerUrl(param){
+        if(param==null){
+          return url;
+        }
+        return url + "/" + param;
+      }
 
     this.traerTodo = function () {
-      return $http.get('http://www.egos27.somee.com/api/bandera')
+      return $http.get(traerUrl())
       .then( function (data){
 
         return data.data.Paises;
@@ -19,7 +27,7 @@ angular
     }
 
     this.traerNombres = function () {
-      return $http.get('http://www.egos27.somee.com/api/bandera')
+      return $http.get(traerUrl())
       .then( function (data){
 
         var soloPaises = data.data.Paises.map(function(pais){
@@ -36,7 +44,7 @@ angular
     }
 
     this.traerBanderas = function () {
-      return $http.get('http://www.egos27.somee.com/api/bandera')
+      return $http.get(traerUrl())
       .then( function (data){
 
         var soloBanderas = data.data.Paises.map(function(pais){
@@ -53,10 +61,10 @@ angular
     }
 
     this.traerPais = function(pais) {
-      return $http.get('http://www.egos27.somee.com/api/bandera/' + pais)
+      return $http.get(traerUrl(pais))
       .then( function (data){
 
-        return bandera.data;
+        return data.data;
       
       },function (error){
         
