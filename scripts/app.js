@@ -44,4 +44,9 @@ angular
       templateUrl: 'views/bandera.html',
       controller:'BanderaCtrl'
     })
+    .state('tpfactory', {
+      url: '/tpfactory',
+      templateUrl: 'views/tpfactory.html',
+      controller:'TpfactoryCtrl'
+    })
   });

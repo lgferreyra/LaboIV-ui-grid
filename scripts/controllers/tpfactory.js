@@ -1,32 +1,35 @@
 angular
   .module('app')
-  .controller('BanderaCtrl', function($scope, bandera, i18nService) {
+  .controller('TpfactoryCtrl', function($scope, i18nService, tpfactory) {
 
-    console.info(bandera);
+    console.info(tpfactory);
     // Objeto de configuracion de la grilla.
     $scope.gridOptions = {};
     $scope.gridOptions.paginationPageSizes = [25, 50, 75];
     // Configuracion de la paginacion
     $scope.gridOptions.paginationPageSize = 25;
     $scope.gridOptions.columnDefs = columnDefs();
+    $scope.gridOptions.rowHeight=66;
     // Activo la busqueda en todos los campos.
     $scope.gridOptions.enableFiltering = true;
     // Configuracion del idioma.
     i18nService.setCurrentLang('es');
 
-    bandera.traerNombres().then(function(rta){
+    tpfactory.traerTodo().then(function(rta){
       // Cargo los datos en la grilla.
+        console.info(rta);
       $scope.gridOptions.data = rta;
-      console.info(rta);
+    
     });
 
     function columnDefs () {
       return [
 
-      	{ field: 'Nombre', name: 'País'},
+        { field: 'Nombre', name: 'País'},
 
-      	{ field: 'BanderaChica', name: 'Bandera', 
-        cellTemplate:"<img ng-src='{{grid.getCellValue(row, col)}}' lazy-src>"
+        { field: 'BanderaChica', name: 'Bandera', 
+        cellTemplate:"<img width='50px' height='30px' ng-src='{{grid.getCellValue(row, col)}}'>",
+        enableFiltering: false
         }
 
         /*{ field: 'foto', name: 'Foto', 
@@ -35,4 +38,5 @@ angular
         }*/
       ];
     }
+
   })

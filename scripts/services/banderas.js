@@ -26,7 +26,6 @@ angular
           return {Nombre:pais.Nombre};
         });
 
-        console.info(soloPaises);
         return soloPaises;
       
       },function (error){
@@ -44,7 +43,6 @@ angular
           return {BanderaChica:pais.BanderaChica};
         });
 
-        console.info(soloBanderas);
         return soloBanderas;
       
       },function (error){
@@ -58,7 +56,6 @@ angular
       return $http.get('http://www.egos27.somee.com/api/bandera/' + pais)
       .then( function (data){
 
-        console.info(bandera.data);
         return bandera.data;
       
       },function (error){
